@@ -1,0 +1,252 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<!DOCTYPE html>
+<html class=''>
+
+<head>
+    <title>mAgent Demo</title>
+    <script
+        src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script>
+    <script
+        src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script>
+    <script
+        src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script>
+    <meta charset='UTF-8'>
+    <meta name="robots" content="noindex">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+    <link rel="mask-icon" type=""
+        href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg"
+        color="#111" />
+    <link rel="canonical" href="https://codepen.io/emilcarlsson/pen/ZOQZaV?limit=all&page=74&q=contact+" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300' rel='stylesheet'
+        type='text/css'>
+
+    <script src="https://use.typekit.net/hoy3lrg.js"></script>
+    <script>try {Typekit.load({async: true});} catch (e) {}</script>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+    <link rel='stylesheet prefetch'
+        href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
+    <script src="https://kit.fontawesome.com/cdd5199c43.js" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+    <div id="frame">
+        <div id="sidepanel">
+            <div id="profile">
+                <div class="wrap">
+                    <img src="img/miracle-logo-light.png" />
+                </div>
+            </div>
+            <div id="contacts">
+                <ul id="addPerson">
+                    <li class="contact" onclick="select(event)">
+                        <div class="wrap">
+                            <div class="meta">
+                                <p class="name">+1-(248)-233-1900</p>
+                                <p class="preview">3/24/2020, 4:04:22 PM IST</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="bottom-bar">
+                <button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Settings</span></button>
+                <button id="addcontact"><i class="fas fa-unlock-alt" aria-hidden="true"></i> <span>Sign
+                        Out</span></button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="contact-profile">
+                <p id="active">+1-(248)-233-1900</p>
+                <div class="date-time">
+                    <span class="box-button btn btn-danger" id="start-button" onclick="end()">End Chat</span>
+                    <span class="box-button1" id="start-button1" onclick="startConversation()">Start</span>
+                    <!-- <span class="box-button" id="start-button" onclick="startConversation()">Start</span> -->
+                    <!-- <i class="fas fa-calendar-alt hidden" id="date-icon"></i>
+                    <i class="hidden" id="date-stamp">March 20th, 2020 13:46:27 EST</i> -->
+                </div>
+            </div>
+            <div class="messages">
+                <ul id="msgs">
+                    <li class="sent">
+                        <p>Hey! How are you doing?</p>
+                    </li>
+                    <li class="replies">
+                        <p>I am good. How about you?</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="message-input">
+                <div class="wrap">
+                    <input type="text" disabled id="msgip" placeholder="Enter messsage here" />
+                    <button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script
+        src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+
+
+
+    <script>$(".messages").animate({ scrollTop: $(document).height() }, "fast");
+        // function startConversation() {
+        //     document.getElementById("date-stamp").classList.remove("hidden");
+        //     document.getElementById("date-icon").classList.remove("hidden");
+        //     document.getElementById("start-button").classList.add("hidden");
+        // }
+        $("#start-button1").show()
+        $("#start-button").hide()
+        function startConversation(){
+                        $("#start-button1").hide()
+                        $("#start-button").show()
+                        $('#msgip').prop("disabled", false);
+
+                    // document.getElementById("start-button1").classList.add("hidden");
+                    }
+        function newMessage() {
+            message = $(".message-input input").val();
+            if ($.trim(message) == '') {
+                return false;
+            }
+            $.post("https://c2e92e7d.ngrok.io/getMessage", { "message": message }).done(function (data) {
+                console.log("Data Loaded: " + data);
+            });
+            $('<li class="replies"><p>' + message + '</p></li>').appendTo($('.messages ul'));
+            $('.message-input input').val(null);
+            $('.contact .active .preview').html('<span>You: </span>' + message);
+            $(".messages").animate({ scrollTop: $(document).height() }, "fast");
+            $('#msgs').scrollTop($('#msgs')[0].scrollHeight);
+        };
+
+        $('.submit').click(function () {
+            newMessage();
+        });
+
+        $(window).on('keydown', function (e) {
+            if (e.which == 13) {
+                newMessage();
+                return false;
+            }
+        });
+    </script>
+
+    <script>
+        // $("#start-button").hide()
+        var data
+        var chatdata = [
+            //     {
+            //     msgs: [{ from: "send", text: "hello from user1", time: 1584879869277 }, { from: "recv", text: "hello from user1", time: 1584879869277 },{ from: "send", text: "hello", time: 1584879869277 }, { from: "recv", text: "hello", time: 1584879869277 }],
+            //     _id: "+918464041124",
+            //     Name: "yagnesh",
+            //     address: "Miracle city",
+            //     PhoneNumber: "+918464041124",
+            //     date: "2020-03-22",
+            //     agent: true
+            // }
+        ]
+        $(document).ready(function () {
+            chatdata.forEach(data => {
+                console.log(data.msgs[data.msgs.length - 2])
+                t = data.msgs[data.msgs.length - 1].time
+                date = new Date(t).getDate() + '/' + new Date(t).getMonth() + '/' + new Date(t).getFullYear() + '  ' + new Date(t).getHours() + ':' + new Date(t).getMinutes()
+                $("#addPerson").append('<li onclick="select(event)" class="contact active"><div class="wrap"><div class="meta"><p class="name">' + data._id + '</p><p class="preview">' + new Date(t).toLocaleString() + ' IST </p></div></div></li>')
+                // $("#addPerson").append('<div onclick="select(event)"><img   src="amelia.png" alt="Avatar" style="width:100%;"><p id="getname" style="text-align:initial"> ' + data.Name + '</p><span class="time-right" style="margin-left:-7vh">' +date+ '</span></div>')
+            })
+        });
+        function accept() {
+            // console.log(chatdata[i])
+            $.post("https://c2e92e7d.ngrok.io/accept", {}).done(function (data) {
+                console.log("Data Loaded: " + data);
+
+            });
+        }
+        function end() {
+            $("#start-button1").show()
+        $("#start-button").hide()
+            $('#msgip').prop("disabled", true);
+            $('#msgs').empty()
+            $.post("https://c2e92e7d.ngrok.io/end", {}).done(function (data) {
+                console.log("");
+            });
+        }
+        // select("a")
+        var messages;
+        function select(e) {
+            accept()
+            $('#msgs').empty()
+            // $('#msgip').prop("disabled", false);
+            console.log(e)
+            $('#contact').addClass("active");
+            $('#messages1').empty()
+            activedata = ""
+            console.log(e.target.innerText)
+            i = chatdata.findIndex(obj => obj.Name === e.target.innerText)
+            console.log(i)
+            activedata = chatdata[0].data
+            document.getElementById('active').innerHTML = activedata._id
+            // document.getElementById('activename').innerHTML=activedata.Name
+            console.log(activedata)
+            console.log(i)
+            msgs = messages
+            console.log(messages)
+            // $('#query').prop("disabled", false)
+            $.get("https://c2e92e7d.ngrok.io/getdata").done(function (data) {
+
+                data.forEach(element => {
+                    console.log(element.text)
+                    if (element.origin == "User") {
+                        $('#msgs').append('<li class="replies"><p>' + element.text + '</p></li>')
+                    } else {
+                        $('#msgs').append('<li class="sent"><p>' + element.text + '</p></li>')
+                    }
+                });
+            });
+
+
+        }
+        document.addEventListener("DOMContentLoaded", event => {
+            webSocket = new WebSocket("ws://localhost:4000");
+            webSocket.onmessage = function (msg) {
+
+                console.log(chatdata)
+                data = JSON.parse(msg.data);
+
+                console.log(data)
+                if (data.event == "request") {
+                    chatdata.push(data)
+                    data = data.data
+                    console.log(data.msgs)
+                    t = data.msgs[data.msgs.length - 1].time
+                    date = new Date(t).getDate() + '/' + new Date(t).getMonth() + '/' + new Date(t).getFullYear() + '  ' + new Date(t).getHours() + ':' + new Date(t).getMinutes()
+                    $("#addPerson").prepend('<li onclick="select(event)" class="contact active"><div class="wrap"><div class="meta"><p class="name">' + data._id + '</p><p class="preview">' + new Date(t).toLocaleString() + ' IST </p></div></div></li>')
+                }
+                if (data.event == "message") {
+                    chatdata[0].data.msgs.push({ "from": "recv", "text": data.data, "time": new Date() })
+                    $('#msgs').append('<li class="sent"><p>' + data.data + '</p></li>')
+                    $('#msgs').scrollTop($('#msgs')[0].scrollHeight);
+
+                }
+
+            };
+        });
+
+    </script>
+</body>
+
+</html>
