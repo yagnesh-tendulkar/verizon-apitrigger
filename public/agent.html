@@ -124,7 +124,7 @@
             if ($.trim(message) == '') {
                 return false;
             }
-            $.post("https://c2e92e7d.ngrok.io/getMessage", { "message": message }).done(function (data) {
+            $.post("https://verizon-backend.herokuapp.com/getMessage", { "message": message }).done(function (data) {
                 console.log("Data Loaded: " + data);
             });
             $('<li class="replies"><p>' + message + '</p></li>').appendTo($('.messages ul'));
@@ -171,7 +171,7 @@
         });
         function accept() {
             // console.log(chatdata[i])
-            $.post("https://c2e92e7d.ngrok.io/accept", {}).done(function (data) {
+            $.post("https://verizon-backend.herokuapp.com/accept", {}).done(function (data) {
                 console.log("Data Loaded: " + data);
 
             });
@@ -181,7 +181,7 @@
         $("#start-button").hide()
             $('#msgip').prop("disabled", true);
             $('#msgs').empty()
-            $.post("https://c2e92e7d.ngrok.io/end", {}).done(function (data) {
+            $.post("https://verizon-backend.herokuapp.com/end", {}).done(function (data) {
                 console.log("");
             });
         }
@@ -206,7 +206,7 @@
             msgs = messages
             console.log(messages)
             // $('#query').prop("disabled", false)
-            $.get("https://c2e92e7d.ngrok.io/getdata").done(function (data) {
+            $.get("https://verizon-backend.herokuapp.com/getdata").done(function (data) {
 
                 data.forEach(element => {
                     console.log(element.text)
@@ -221,7 +221,7 @@
 
         }
         document.addEventListener("DOMContentLoaded", event => {
-            webSocket = new WebSocket("ws://localhost:4000");
+            webSocket = new WebSocket("wss://verizon-agent-backend.herokuapp.com/");
             webSocket.onmessage = function (msg) {
 
                 console.log(chatdata)
