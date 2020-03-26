@@ -25,7 +25,7 @@ $(document).ready(function(){
 
 
 function sendremainder(msg, num,laddaInstance){
-  $.post("https://c2e92e7d.ngrok.io/remainder", { "message": msg,"number":num }).done(function (data) {
+  $.post("https://verizon-backend.herokuapp.com/remainder", { "message": msg,"number":num }).done(function (data) {
     console.log("Data Loaded: " + data);
     laddaInstance.stop();
     $('#cta-input').val(null)
@@ -34,7 +34,7 @@ function sendremainder(msg, num,laddaInstance){
 
 }
 function sendAlert(msg, num,laddaInstance){
-  $.post("https://c2e92e7d.ngrok.io/alert", { "message": msg,"number":num }).done(function (data) {
+  $.post("https://verizon-backend.herokuapp.com/alert", { "message": msg,"number":num }).done(function (data) {
     console.log("Data Loaded: " + data);
     laddaInstance.stop();
     $('#cta-input').val(null)
@@ -57,7 +57,7 @@ function sendAlert(msg, num,laddaInstance){
 
 
 function askFeedback(msg,num,laddaInstance){
-  $.post("https://c2e92e7d.ngrok.io/feedback", { "message": msg,"number":num }).done(function (data) {
+  $.post("https://verizon-backend.herokuapp.com/feedback", { "message": msg,"number":num }).done(function (data) {
     console.log("Data Loaded: " + data);
     laddaInstance.stop();
     $('#cta-input').val(null)
