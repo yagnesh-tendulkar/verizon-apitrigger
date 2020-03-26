@@ -2,7 +2,7 @@ $(document).ready(function(){
  //alert("@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
   $('#cta-alert').on('click', function(){
 
-    console.log("asudhsagfou",$('#cta-input').val())
+    console.log("asudhsagfou",$('#cta-input1').val())
 
     var laddaInstance = Ladda.create(document.querySelector('#cta-alert'));
     laddaInstance.start();
